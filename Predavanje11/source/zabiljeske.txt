@@ -1,0 +1,65 @@
+Napredni JavaScript (napredni koncepti)
+--------------------------------------------------
+API---
+Application Programming Interface
+
+Sučelje aplikacijskog programa koje se može definirati kao skup metoda komunikacije
+između različitih softverskih komponenti.
+-nije striktno vezan uz web tehnologije
+
+HTTP request---
+
+Akcija 		HTTP 		Metoda Opis
+
+Create		POST 		Kreira novi resurs
+Read 		GET 		Vrati resurs
+Update 		PUT/PATCH 	Ažurira postojeći resurs
+Delete 		DELETE 		Briše resurs
+
+CRUD - create read update delete 
+
+REST(ful) API---
+REpresentational State Transfer
+
+Skup pravila kojih se programeri pridržavaju prilikom kreiranja API-ja. Jedno od tih
+pravila kaže da biste trebali biti u mogućnosti dobiti dio podataka (koji se zove resurs)
+kada se povezujete na određeni URL. 
+
+GET /v1/locations/search?lat=40.7127&lng=74.0059
+
+-u restu možemo poslati parametre u upitu da filtriramo rezultate koje dobijemo od baze npr
+
+Povezivanje na REST API---
+
+1. Krajnja točka (endpoint)
+2. Metoda
+3. Zaglavlja (headers) - bitno za zaštićene API-je u njemu se šalje token koji je generiran za usera
+4. Podaci (ili tijelo) (data/body) - najčešće za dodavanje ili update resursa
+
+Koristit ćemo JSON format za prijenos podataka između servera i aplikacije!
+
+AJAX---
+Asynchronous JavaScript and XML
+
+Kombinacija XMLHttpRequest objekta ugrađenog u preglednik (za traženje podataka
+s web poslužitelja) i HTML DOM-a (za prikaz ili upotrebu podataka)
+-nudi asinkronu komunikaciju između 
+
+AJAX
+
+Sa AJAX-om možemo bez učitavanja
+1. Zatražiti podatke s poslužitelja
+2. Primati podatake s poslužitelja
+3. Poslati podatke poslužitelju
+
+var request = new XMLHttpRequest();
+request.open('GET', endpoint, true);
+request.onload = function () {
+// Pristupi podacima koje je server vratio
+};
+request.send();
+
+-ovakav stari pristup AJAX-a nećemo koristiti
+
+CORS- cross origin resource sharing - restrikcija zbog sigurnosnih razloga
+

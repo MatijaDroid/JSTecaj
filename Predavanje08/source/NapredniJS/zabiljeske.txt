@@ -1,0 +1,87 @@
+--------NAPREDNI JS----------
+
+------------Uvod u napredne koncepte----------
+
+Eksplicitna konverzija podataka
+-par metoda možemo koristiti kad želimo konvertirati vrijednost
+
+1. Upotrijebiti Number,String,Boolean i Object funkcije
+2. toString metoda za konverziju bilo koje vrijednosti u string
+3. parseInt i parseFloat parsiraju vrijednost i izvlače broj
+
+Hoisting
+
+-premještanje svih deklaracija na vrh trenutnog opsega (na vrh trenutne skripte ili funkcije)
+-varijable je dobro deklarirati na početku funkcije
+
+Objekt
+
+-osnovni oblik podatka JS-a
+-zbirka svojstava od kojih svako ima vrijendost i ime(ključ)
+-funckcije,stringovi itd sve je objekt
+
+Scope(opseg)
+
+-određuje dostupnost varijabli i objekata i funkcija iz različitih dijelova koda
+-JS koristi leksički opseg implementiran u funkcijama
+
+Globalne i lokalne varijable
+
+-kada je varijabal unutar funkcije ona je lokalna osim ako se izostavi var ili let
+-u slučaju da je van funckije onda je globalna
+
+Namespace
+
+-svi kodovi u JS aplikaciji ili webu dijele globalne varijable
+-žive u istom globalnom prostoru imena i uvijek postoji mogućnost clasha imenovanja- kada dva odvojena dijela appa definiraju globalne varijable s istim nazivom ali različitim svrhama
+-svaki dio koda može pristupiti svakom globalnom scopeu
+
+this
+-ključna riječ this se odnosi na kontekst objekta
+1. van objekta ili fji se odnosi na globalni objekt
+2. u metodama objekta se odnosi na sam objekt
+
+----------Funkcije - napredni koncepti---------
+
+Način korištenja funkcije
+
+-u JS fje su objekti prve klase i tretiraju se kao bilo koja druga varijabla i imaju vlastita svojstva i metode
+
+mogu se: - dodijeliti varijabli
+	 - može se prosljediti drugoj fji kao argument
+	 - fja može vratiti druge funckije (return)
+fja koja vraća drugu se naziva HOF - higher order function
+
+Funckija kao varijabla
+-kada u varijablu stavimo npr var y = vratiNesto(); onda varijabla ima vrijednost funckije
+-kada u varijablu stavimo samo ime funckije bez () onda se varijabla ponaša kao funkcija
+-obavezan pristup u Reactu
+
+Kao argument druge funkcije
+var y= vratiNesto(vratiMene);
+-šaljemo funkciju vratiMene kao argument drugoj funkciji
+
+Kao vraćena vrijednost
+var y = vratiNesto(true)
+- return function() u tijelu vraća samo funkciju koja se onda nalazi u var y
+var y = vratiNesto(true)()
+-kada pozovemo sa zagradama na kraju onda se odradi i druga funkcija unutar funkcije i var y ima rezultat druge funkcije
+
+Anonimna funckija
+-funkcija koja nema ime
+-ne može se nalaziti globalno nego mora biti unutar druge funkcije
+-može biti izravno dodijeljena varijabli ili obuhvaćena zagradama (da ne zagadi globalni scope)
+IIFE - immediately invoked function expression (samopozivajuća anonimna funkcija)
+
+Closure
+-u računalnoj znanosti closure je kombinacija objekata funckije i dosega (scopea) nutar kojeg su varijable funkcije razriješene
+-sve funkcije u JS implementiraju closure tehniku
+-doseg varijabli funckije je unutar koje je funckija definirana a ne unutar kojeg je pozvana
+
+-lokalni scope + definicija funckije
+
+Funkcionalno programiranje
+
+-više o tome u React modulu
+-funkcionalno programiranje je programska paradigma koji računanje smatra kao evaluaciju matematičkih funckija i izbjegavaju promjenu stanja
+i promjenjivih podataka

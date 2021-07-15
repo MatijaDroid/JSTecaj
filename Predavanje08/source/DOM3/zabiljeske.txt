@@ -1,0 +1,65 @@
+DOM manipulacija
+
+Događaji
+-------------------------
+
+-radnje korisnika se definiraju kao eventi koje možemo capturat
+-JavaScript koristimo kao reakciju na događaj
+
+Pojmovi---
+
+-event type
+-event target
+-event handler/listner
+-event object
+-event propagation
+-event capturing
+
+-link ne stavljamo na JS
+
+-tipovi događaja
+-Form - blur,change,focus,input,invalid,reset,submit (kad se dogode na korisinčkoj strani)
+-Window - load,offline,line,popstate,resize,storage (npr. tek kad se učita itd..)
+-Mouse
+-Key
+-HTML5
+-Mobile - touchstart,touchend (JS raspoznaje mobilni uređaj i touch kao event)
+
+addEventListner()
+3 načina postavljalnja
+1. inline
+2. kao svojstvo na elementu
+3. addEventListner metoda
+
+1. inline
+-ima event handlera prefix on-
+- korištenjem on-blur, on-klik itd (bez minusa)
+-šaljemo funkciju koja se nalazi u JS, danas se rijetko primjenjuje
+-generalno inline možemo ali bolje je ne koristiti
+
+2. kao svojstvo na elementu
+-isti prefix
+-dodajemo svojstvo kao funkciju (metoda)
+
+var button = document.querySelector('button');
+button.onblur = function(){...}
+-ako želimo maknuti moramo ukloniti funkciju iz elementa
+
+3. addEventListner metoda
+-kreiramo funkciju koja je handler(nešto odrađuje)
+-preko metode dodajemo event .addEventListner koja ima dva svojstva (objekt eventa, metoda)
+-preko metode .removeEventListner mičemo listner
+
+Handler funkcija
+-funkcija koja reagira na događaj uvijek vraća objekt eventa kao parametar
+(event)
+-možemo i otkazati default reakciju na događaj i spriječiti propagaciju na druge elemente
+.preventDefault
+.stopPropagation
+
+Bubbling
+-eventi se događaju u dvije faze
+1.Event capturing - hvatanje evenata - ide od roota do eventa 
+2.Event bubbling - vraća nazad event koji se događa na svim elementima do roota (document) i pokrene evente na svim parentima
+
+-metoda .stopPropagation nam koristi da zaustavimo bubbling na mjestu gdje se dogodio event

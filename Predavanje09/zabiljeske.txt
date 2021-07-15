@@ -1,0 +1,137 @@
+----------------NAPREDNI KONCEPTI OOP------------------
+
+Objektno orijentirano programiranje
+-jedna od programskih paradigmi koje koristi objekte kao modele za računanje
+-programska paradigma - način klasifikacije jezika na temelju njegovih značajki
+-jezici se mogu svrstati u više paradigmi
+
+OOP tldr: Sve je objekt!
+
+-------------JavaScript OOP-----------------
+
+-dizajniran da bude objektno orijentirani jezik
+-većina tipova podataka su objekti pa čak i funkcije
+-oop jezici koji podržavaju objektno orijentirano programiranje obično koriste nasljeđivanje u svrhu ponovne upotrebe postojećeg koda u obliku 
+proširivosti klasa ili prototipa
+
+OOP u JS -  klasično nasljeđivanje
+
+1. baziran na klasama
+2. objekti se stvaraju iz klasa
+3. ti objekti se nazivaju instancama klasa
+
+OOP u JS se bazira na prototip načinu nasljeđivanja. JS nema klase!!
+
+Prototype objekt
+
+- svaki JS objekt ima drugi JS objekt (ili null ali rijetko) koji je povezna s njim
+- drugi objekt se naziva prototype a prvi nasljeđuje svojstvo iz prototipa
+
+Prototype !== Prototype
+
+- JS objekti imaju dva prototype svojstva
+
+1. Prvi se vodi pod imenom _proto_ili <prototype>, referenca je na drugi objekt koji je jednak konstruktor prototype u nasljeđuje njegove metode i nesmije se mijenjati
+2. drugi objekt slobodno možemo mijenjati i dodavati metode, ime mu je najčešće prototype ali može biti proizvoljno
+
+---------------OOP u JS--------------------
+
+JavaScript nema definirana privatna,javno dostupna,zaštićena ili privilegirana svojstva objekata ali se mogu ostvariti kroz principe closura.
+Kroz closure možemo zaštiti svojstva.
+Pascal case name convention se koristi da su sva početna prva slova velika.Koristi se i za definiranje klasa u drugim jezicima.
+Koristi se samo kada je funkcija u ulozi konstruktora.
+- new se koristi za instanciranje funkcije kod poziva npr var dog = new Dog(); što poziva funkciju i stvara objekt.
+
+Konstruktor
+
+-je funkcija dizajnirana za incijalizaciju novostvorenih objekata
+-kritična značajka poziva konstruktora je da se prototip svojstvo konstruktora koristi kao prototip novog objekta
+
+Riječ "new"
+
+-ispred bilo koje funckcije pretvara poziv funkcije u poziv konstruktora
+
+1. stvara potpuno novi prazan objekt
+2. novi prazni objekt povezuje se sa svojstvom prototipa te funkcije
+3. isti novi prazni objekt postaje this za kontekst izvršenja tog poziva funkcije
+4. ako ta funkcija ništa ne vraća onda implicitno vraća ovaj objekt
+
+-this se u običnoj funkciji referencira na Window objekt
+-ako je funkcija konstruktor onda se referencira na konstruktor var nesto = new Nesto();
+
+Riječ "this" u konstruktor funkciji
+
+-u funkciji oja je invocirana riječju new (konstruktor), riječ this se odnosi na samu funkciju
+-metode ivarijable koje su deklariran sa riječju this pripadaju objektu te funkcije
+
+Ne zabraviti!
+-kod normalnih funkcija this se odnosi na globalni objekt
+
+Call,bind,apply
+
+-svaka funkcija ima metode povezivanja,vezivanja i primjene
+-ove vrijednosti mogu koristiti za postavljanje prilagođene vrijednosti this u kontekst izvršenja funkcije
+-Bind nam omogućuje da postavite vrijednost sada dok omogućuje izvršavanje funckije u budućnosti jer vraća novi objekt funkcije
+
+Prototip metode
+
+-metode objekta je najoptimalnije definirati na saom prototipu konstruktor funkcije
+
+Zašto?
+-zato što u suprotnom svaki put kad pozovemo konstruktor objekta te metode će se ponovno definirati a neće biti različite od svih drugih u drugim objektima kreiranim s istim konstruktorom
+
+-------------Obrasci programskog koda---------------
+
+Obrazac(pattern)
+
+-riješenje za česte probleme u programiranju
+-riješava:
+1. potrebu za ponavljanjem istog koda na više mjesta
+2. kompliciran kod pojednostavljenjem abstrakcije
+3. probleme komunikacije tima pružanjem zajedničkog jezika opisivanja sličnih problema
+
+Tipovi obrazaca
+
+Dizajn obrasci
+GoF obrasci za OOP jezike (java,c++)
+Obrasci u kodu
+Vezani za specifični programski jezik
+Antiobrasci (antipattern)
+Obrasci koji stvaraju više problema nego što riješavaju
+
+Dizajn obrasci za OOP
+Singleton
+U OOP-u Singleton podrazumijeva samo jednu instancu
+klase. U JavaScriptu je objekt literal već singleton (nema
+klasa!):
+
+var person = {
+name: 'John Doe'
+}
+
+Factory
+Koristi se za kreaciju objekata. Ima sljedeće funkcije:
+1. Obavlja ponavljajuće operacije prilikom postavljanja
+sličnih objekata
+2. Nudi način stvaranja predmeta bez poznavanja
+određene vrste (klase) u vrijeme sastavljanja
+
+Module obrazac
+
+-koristi se za kreiranje JS paketa tj. samostalnih dijelova koda koji se mogu dodavati,zamjenti,micati po volji i bez opasnosti da se nesto poremeti u ostatku aplikacije/web stranice
+-koristiti ćemo na reactu
+
+Par pojmova koje bi bilo dobro proučiti prije implementacije module obrazca:
+- imenski prostor (namespace)
+- samopozivajuće anonimne funkcije
+- privatni i povlašteni članovi objekta
+- deklaracije paketa o kojima ovisimo
+
+Export/import paketa
+
+-require - stara metoda i netreba u SE6
+- .exports - možemo eksportat cijeli file ili dijelove koje izaberemo
+- kod importa u var a dobijemo objekt module1
+
+Module obrazac primjer
+jQuery u predavanju

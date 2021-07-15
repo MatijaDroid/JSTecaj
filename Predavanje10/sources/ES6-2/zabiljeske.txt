@@ -1,0 +1,57 @@
+ES6 novosti
+4. "Arrow" funkcije
+5. Klase i moduli
+6. Promises
+
+"Arrow" funckcije
+
+-omogućuju kraću sintaksu za definiranje funkcija (bez zagrada,bez ključnih riječi function i return ili kombinacija)
+
+const bark = () => 'Wuf Wuf';
+
+forEach(myArray, element => console.log(element));
+forEach(myArray, element => {
+
+console.log(this);
+return element;
+);
+
+- kod kompleksnijih funkcija koristit ćemo return
+- u arrow funkciji možemo koristiti ključnu riječ this
+
+Klase
+
+-ES6 je dodao ključnu riječ class kako bi jezik približili klasičnoj sintaksi OOP jezika (Java, c++) ali u pozadnini nema promjena
+
+class Dog {
+	............
+}
+
+-također klase imaju par novih izraza
+-constructor - metoda koja se zove prilikom inicijalizacije objekta
+-extends - za nasljeđivanje kao u klasičnom OOP
+
+class Golden extends Dog {
+constructor(breed) {
+	this.breed = breed;
+
+  }
+}
+
+Obećanja (Promises)
+Obećanje je objekt koji će razultirati jednom vrijednosti koja može biti riješena ili neriješena (odbačena)
+
+new Promise((resolve, reject) => {
+	...
+	if (...) {
+	  return resolve;
+	}
+	return reject;
+})
+.then()
+.catch();
+
+Egzekutor funkcija mora vratiti ili resolve ili reject callback funkciju
+.then reagira na stanje fulfilled promise objekta
+.catch reagira na stanje rejected
+

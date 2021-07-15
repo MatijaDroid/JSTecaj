@@ -1,0 +1,115 @@
+Instaliraj GitBash i Node.js
+
+Upravljanje pogreškama
+----------------------
+Zašto testirati kod
+----------------------
+Zato što želimo svojim klijentima dostaviti kvalitetan i profesionalan kod.
+Kao i sa svim u developmentu što ranije pronašen bug to je manje sredstava, vremena i novca potrebno za njezino popravljanje.
+
+Tko sve može detektirati bug?
+-----------------------------
+Developer - kod pisanja koda i testiranja aplikacije
+Development tim - kod testiranja aplikacije, kod provjere koda ili pomoću CI paketa
+QA tim u firmi - kod ručnog ili automatskog testiranja aplikacije
+Klijent ili krajnji korisnik - najgori scenarij, bug je u produkciji i šteti ugledu firme i košta više za popraviti
+
+Pojmovi
+-----------------
+Quality control(QC)
+Quality assurance(QA)
+Test-driven developmenet(TDD)
+
+Razine testiranja
+------------------
+E2E - provjera aplikacije kroz sve sustave, od backenda do frontenda
+Integration - provjera da više modula ispravno rade zajedno  
+Unit - provjera individualnih dijelova(modula) funckioniraju (u izolaciji), alat:test framework
+Static - detekcija bugova i zatipaka dok se piše kod, alat:JSLint
+
+Automatski testovi
+------------------
+Najviše koristi možete dobiti automatizacijom:
+- repetativnih testova
+- testova koji imaju tendenciju biti uzrokovani ljudskom pogreškom
+- često koristenih funkcija visokog rizika
+- testova koji zahtijevaju puno vremena kod se izvode ručno
+
+Otkrivanje pogrešaka
+--------------------
+Linting
+-------
+Linting je postupak provjere izvornog koda za programske kao i stilističke pogreške.
+Linter je program koji podržava linting(provjeru kvalitete koda)
+
+1.Linter uzima izvoj JS i skenira ga
+2. Ako pronađe sintaksni ili sturkturni problem, vraća poruku koja opisuje problem i približnu lokaciju unutar izvora
+
+Linteri
+---------
+JSLint - može se odmah početi s radom | nema config file
+JSHint - može se konfigurirati samo bazični ES6 | ne možemo dodati vlastiti pravilo
+JSCS - može se customizati po potrebi | ne detektira sve sintaksne bugove
+ESLint - najbolja ES6 potreba, vrlo fleksibilan | zahtjeva konfiguracij, spor
+
+JSHint
+Koristi .jshintrc file (JSON) za konfiguraciju pravila linanja
+Može se koristiti inline.
+
+Chrome DevTools
+---------------
+-skup alata za web programere ugrađenih izravno u preglednih Google Chrome i najčešće korisšten web developer tool
+
+Točke prekida(breakpoints)
+Točka prekida namjerno mjesto zaustavljannja u programu, postavljenu u svrhu uklanjanja pogrešaka
+Prilikom breakpoint zastoja možemo dobiti informacije o: threadu, call stacku i scope-u
+
+Optimizacija
+------------
+Google DevTools(network)
+Network nam daje infomrmacije o loadanom resursu:
+-poredak loadanja resursa
+-HTTP status kod
+-vrsti resursa
+-što je uzrokovalo da se zatraži resurs
+-koliko je trajao zahtjev
+
+Google DevTools(performance)
+Performance tab analizira kako se vaša stranica ponaša dok se prikazuje.
+Kompiliciran je za shvatiti čak i za iskusnog developera i zahtijeva detaljno znanje o radu browsera.
+
+Bilo koja stranica se na internetu može analizirati kroz google alat PageInsights. Bitan info za SEO.
+On nam daje info o:
+-Google ocjeni koja se dodijeljuje na temelju kategorija koje prate brzinu izvođenja
+-primijećenim problemima i predloženim koracima koji se mogu poduzeti kako bi se ocjena povisila i stranica ubrzala
+
+Don't repeate yourself
+---------------------
+Princip razvoja softwarea usmjerenog na smanjenje ponavljanja uzoraka software-a zamjenivši ga apstrakcijama ili koristeći normalizaciju podataka kako bi se izbjegla suvišnost.
+
+Minifikacjia JS-a
+-----------------
+Loadanje JS koda (kao i HTML i CSS) se može smanjiti minifikacijom skripti što smanjuje veličinu datoteke.
+
+Zapamtiti
+Za optimizaciju JS na stranici:
+1. Pišite optimiziran i DRY JS kod
+2. Loadajte JS skriptu na ispravnom mjestu u HTML-u
+3. Minificijate JS skripte na produkciji
+4. Kad je primjereno, loadajte JS kod preko CDN-a
+
+Testiranje koda
+----------------
+Unit testing ćemo mi raditi
+
+Jest test framework
+Funkcije podudarnaja
+toBe,toEqual,toBeNull,toBeUndefined,toMatch,toBeClose,toContain,....
+
+Mock funkcije
+Mock je tehnika zamjene dijelova koda koje ne možemo kontorilriati(request prema API-ju) sa nčim što možemo predvidjeti i testirati.
+
+npm install --save-dev jest
+
+Bitno testovi se moraju nalaziti u __tests__
+Kod tests driven developmenta sve funkcije moraju imati return

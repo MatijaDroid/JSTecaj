@@ -1,0 +1,52 @@
+Napredni JavaScript
+(napredni koncepti)
+
+ES6 (ECMAScript6)
+-standard je specifikacija jezika ESCMScript koji definira standard za implementaciju JavaScripta
+-za sve preglednike koji ne podržavaju ovaj standard koristimo Babel transpiler koji pretvara kod u prijašnju verziju JavaScripta
+
+"use strict"
+-svrha direktive use strict je:
+	- naznačiti da je kod koji slijedi (u skripti ili funkciji) strogi kod
+	- strogi način rada olakšava pisanje "sigurnog" JavaScripta
+	- strogi način rada prethodno naznačenu "lošu sintaksu" pretvara u stvarne pogreške u kodu
+
+ES6 novosti
+1. nove definicije varijabli let i const
+2. template litarali
+3. "Spread" operator
+
+Let deklaracija
+-prednosti let deklaracije naspram var
+1. označuje da planiramo mijenjati tu varijablu
+2. opseg varijable je ograničen unutar bloka, ne funkcije
+
+const deklaracija
+-slično kao let deklaracija (block scope) osim što se varijabla nemora mijenjati
+-funkcionalno programiranje izbjegava promjenu stanja i mijenjanje varijabli tako da je const bolja deklaracija od let ili var u većini slučajeva
+
+Template literali
+-umjesto konketenacija stringova pomoću +, koristimo backtickove
+
+` - back tick
+
+-za korištenje template literala nemoramo prekidati string nego samo npr. `Moje ime je ${varijabla}` upiše se sadržaj varijable
+
+"Spread" operator
+-omogućava nam dekonstrukciju niza na njegove elemente
+
+function ipisiImena(prvi, drugi, treći) {}
+
+const x = [] - niz vrijednosti 
+ispisiImena(...x); - iskopa elemente iz niza i pozicionira ih u funkciju, poziva se sa ...
+
+-svaki element se šalje jedan po jedan u parametre (prvi u prvi, drugi u drugi) ako ima više vrijednosti od parametara od funckcije onda zadnji nema di slat ako ima manje zadnji je undefined
+
+"Rest" operator
+
+function ipisiImena(...imena){}
+
+const x = ['ivan', 'david', 'marija'] - niz vrijednosti 
+ispisiImena(...x);
+
+-prima sve što se pošalje i točno podjeli na parametre funkciji i dobiju se svi podatci koji su se poslali funkciji

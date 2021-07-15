@@ -1,0 +1,29 @@
+.container{
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+input{
+    margin-right: 5px;
+}
+button{
+    margin-right: 5px;
+}
+#todoList{
+    list-style: none;
+    padding: 0 10px;
+}
+#todoList li{
+    padding: 5px 0;
+    color: darkred;
+}
+#todoList li.done{
+    text-decoration: line-through;
+    color: darkgreen;
+}
+#todoList li button{
+    border:none;
+    background: transparent;
+    cursor: pointer;
+    margin-left: 10px;
+}
